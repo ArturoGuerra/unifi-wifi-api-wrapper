@@ -15,6 +15,7 @@ func main () {
     middlewares := middlewares.New(Config)
     e.Use(middleware.Logger())
     e.Use(middleware.Recover())
+    e.Use(middleware.CORS())
     e.POST("/api/login", handlers.Login)
     jwtConfig := middleware.JWTConfig{
         Claims: &config.JwtCustomClaims{},
